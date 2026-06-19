@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spencer Merolla | Quant Portfolio</title>
+    <title>Spencer Merolla | Digital Resume & Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent: #58a6ff;
-            --accent-hover: #79c0ff;
-            --border-color: #30363d;
-            --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            --bg-color: #f3f4f6;
+            --surface-color: #ffffff;
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --accent-blue: #2563eb;
+            --accent-green: #16a34a;
+            --border-color: #e5e7eb;
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -25,242 +25,313 @@
             padding: 0;
         }
 
-        .layout {
+        .ticker-tape {
+            background-color: #111827;
+            color: #ffffff;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+            font-weight: 600;
             display: flex;
-            min-height: 100vh;
-            max-width: 1200px;
-            margin: 0 auto;
+            justify-content: center;
+            gap: 3rem;
+            border-bottom: 3px solid var(--accent-blue);
         }
 
-        .sidebar {
-            width: 40%;
-            padding: 5rem 3rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            box-sizing: border-box;
+        .ticker-item span {
+            color: #10b981;
+            margin-left: 0.5rem;
+        }
+
+        header {
+            background-color: var(--surface-color);
+            padding: 2rem 5%;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #3fb950;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        h1 {
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            margin: 0 0 1.5rem 0;
-            font-weight: normal;
+        .header-titles h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        .bio {
-            font-size: 1.05rem;
+        .header-titles p {
+            margin: 0.2rem 0 0 0;
             color: var(--text-muted);
-            margin-bottom: 3rem;
-        }
-
-        .bio strong {
-            color: var(--text-main);
+            font-size: 1.1rem;
             font-weight: 500;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: auto;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-        }
-
-        .links a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.2s;
-            display: inline-block;
-            width: fit-content;
-        }
-
-        .links a:hover {
-            color: var(--accent);
-        }
-
-        .content {
-            width: 60%;
-            padding: 5rem 3rem;
-            border-left: 1px solid var(--border-color);
-            box-sizing: border-box;
-        }
-
-        h2 {
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+        }
+
+        .resume-download {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .resume-download:hover {
+            background-color: #1d4ed8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 2rem;
+        }
+
+        .panel {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             margin-bottom: 2rem;
+        }
+
+        h2.panel-title {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 0.5rem;
             margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .section-block {
-            margin-bottom: 4rem;
+        .feed-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .item {
-            margin-bottom: 2.5rem;
+        .feed-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .item-header {
+        .feed-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.5rem;
         }
 
-        .item-title {
-            font-family: var(--font-mono);
+        .feed-title {
             font-size: 1.2rem;
-            color: var(--text-main);
-            margin: 0;
-            font-weight: bold;
+            font-weight: 700;
+            margin: 0 0 0.2rem 0;
         }
 
-        .item-subtitle {
+        .feed-meta {
             font-size: 0.9rem;
             color: var(--text-muted);
-            font-family: var(--font-mono);
+            font-weight: 500;
         }
 
-        .item-desc {
-            color: var(--text-muted);
-            margin-top: 0.5rem;
+        .feed-desc {
+            margin-top: 0.8rem;
+            color: var(--text-main);
             font-size: 0.95rem;
         }
 
-        .project-links {
-            margin-top: 0.8rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-        }
-
-        .project-links a {
-            color: var(--accent);
+        .action-links a {
+            color: var(--accent-blue);
             text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
             margin-right: 1.5rem;
         }
 
-        .project-links a:hover {
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-weight: 600;
+        }
+
+        .sidebar-links a {
+            display: block;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .sidebar-links a:hover {
             text-decoration: underline;
         }
 
         @media (max-width: 900px) {
-            .layout {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .ticker-tape {
+                display: none;
+            }
+
+            header {
                 flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 3rem 2rem 1rem 2rem;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .links {
-                margin-top: 2rem;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-
-            .content {
-                width: 100%;
-                border-left: none;
-                padding: 3rem 2rem;
-            }
-
-            .item-header {
-                flex-direction: column;
-            }
-
-            .item-subtitle {
-                margin-top: 0.2rem;
+                align-items: flex-start;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="layout">
-        <div class="sidebar">
-            <h1><span class="status-indicator"></span>Spencer Merolla</h1>
-            <div class="bio">
-                <p>Quantitative analyst and economics researcher.</p>
-                <p>I recently graduated <strong>cum laude (3.66 GPA)</strong> from the College of the Holy Cross with a B.A. in Economics and a minor in Environmental Science.</p>
-                <p>I specialize in financial modeling, Natural Language Processing, and climate transition risk&mdash;leveraging SQL, Python, and statistical analysis to bridge the gap between complex environmental data and core equity valuations.</p>
+    <div class="ticker-tape">
+        <div class="ticker-item">HOLY CROSS B.A. <span>&#9650; ECONOMICS</span></div>
+        <div class="ticker-item">CUMULATIVE GPA <span>&#9650; 3.66</span></div>
+        <div class="ticker-item">QUANTITATIVE STACK <span>&#9650; PYTHON, SQL, NLP</span></div>
+    </div>
+
+    <header>
+        <div class="header-titles">
+            <h1>Spencer Merolla</h1>
+            <p>Digital Resume &amp; Quantitative Portfolio</p>
+        </div>
+        <a href="resume.pdf" target="_blank" class="resume-download">Download PDF Resume</a>
+    </header>
+
+    <div class="container">
+        <div class="main-column">
+            <div class="panel">
+                <h2 class="panel-title">Professional Experience</h2>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <h3 class="feed-title">Ithaca Clean Energy</h3>
+                        <span class="feed-meta">Jun 2025 - Present</span>
+                    </div>
+                    <div class="feed-meta">AI &amp; Marketing Intern</div>
+                    <p class="feed-desc">Refined and trained two distinct NLP models to optimize data extraction workflows. Streamlined business development pipelines, bridging the gap between raw AI outputs and actionable clean energy market strategies.</p>
+                </div>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <h3 class="feed-title">Natixis Investment Managers</h3>
+                        <span class="feed-meta">Jun 2024 - Sep 2024</span>
+                    </div>
+                    <div class="feed-meta">Research Assistant | Boston, MA</div>
+                    <p class="feed-desc">Conducted empirical research on daily and weekly ETF price behavior to support quantitative trading strategies. Analyzed leading indicators, liquidity swings during macroeconomic news events, and mean reversion tendencies.</p>
+                </div>
             </div>
 
-            <div class="links">
-                <a href="resume.pdf" target="_blank">Resume &rarr;</a>
-                <a href="https://github.com/spencer-merolla" target="_blank">GitHub &rarr;</a>
-                <a href="https://www.linkedin.com/in/spencer-merolla-301988296" target="_blank">LinkedIn &rarr;</a>
-                <a href="mailto:spencer200shm@gmail.com">Email &rarr;</a>
+            <div class="panel">
+                <h2 class="panel-title">Quantitative Projects &amp; Research</h2>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <h3 class="feed-title">ETF Sentiment &amp; Liquidity Analysis</h3>
+                    </div>
+                    <p class="feed-desc">Engineered an analytical framework to track ETF sentiment, measuring liquidity swings and modeling reality against market expectations to identify mean reversion opportunities.</p>
+                    <div class="action-links">
+                        <a href="https://etf-sentiment-spencer.streamlit.app/" target="_blank">Launch Live Dashboard &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <h3 class="feed-title">Climate Transition Risk &amp; Valuation Model</h3>
+                    </div>
+                    <p class="feed-desc">Engineered an interactive multivariable OLS regression engine merging US EPA Scope 1 facility emissions with point-in-time financial fundamentals. Built to stress-test corporate valuations against hypothetical federal carbon tax scenarios.</p>
+                    <div class="action-links">
+                        <a href="https://climate-risk-modeler.streamlit.app/" target="_blank">Launch Live App &rarr;</a>
+                        <a href="https://github.com/spencer-merolla/climate-valuation-modeler" target="_blank">View GitHub Repository &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="feed-item">
+                    <div class="feed-header">
+                        <h3 class="feed-title">Economics 1986-1990 Retrospective</h3>
+                    </div>
+                    <p class="feed-desc">Authored a comprehensive analytical essay examining the macroeconomic policy shifts, market realities, and regulatory frameworks defining the late 1980s US economy.</p>
+                    <div class="action-links">
+                        <a href="Economics_Essay_1986-1990.pdf" target="_blank">Read Full Analysis (PDF) &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="content">
-            <div class="section-block">
-                <h2>Experience</h2>
+        <div class="sidebar-column">
+            <div class="panel">
+                <img src="profile.jpg" alt="Spencer Merolla" class="profile-img">
 
-                <div class="item">
-                    <div class="item-header">
-                        <h3 class="item-title">Ithaca Clean Energy</h3>
-                        <span class="item-subtitle">Jun 2025 - Present</span>
-                    </div>
-                    <p class="item-desc"><strong>AI & Marketing Intern.</strong> Refined and trained two distinct NLP models to optimize data extraction workflows. Streamlined business development pipelines, bridging the gap between raw AI outputs and actionable clean energy market strategies.</p>
+                <div class="sidebar-section">
+                    <h3>Executive Summary</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0;">Quantitative analyst and economics researcher specializing in financial modeling, Natural Language Processing, and climate transition risk. Leveraging SQL, Python, and statistical analysis to bridge environmental data and equity valuations.</p>
                 </div>
 
-                <div class="item">
-                    <div class="item-header">
-                        <h3 class="item-title">Natixis Investment Managers</h3>
-                        <span class="item-subtitle">Jun 2024 - Sep 2024</span>
+                <div class="sidebar-section">
+                    <h3>Academic Profile</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">Institution</span>
+                        <span class="stat-value">Holy Cross</span>
                     </div>
-                    <p class="item-desc"><strong>Research Assistant.</strong> Conducted empirical research on daily and weekly ETF price behavior to support quantitative trading strategies. Analyzed leading indicators, liquidity swings during macroeconomic news events, and mean reversion tendencies.</p>
-                </div>
-            </div>
-
-            <div class="section-block">
-                <h2>Selected Projects</h2>
-
-                <div class="item">
-                    <h3 class="item-title">ETF Sentiment & Liquidity Analysis</h3>
-                    <p class="item-desc">Engineered an analytical framework to track ETF sentiment, measuring liquidity swings and modeling reality against market expectations to identify mean reversion opportunities.</p>
-                    <div class="project-links">
-                        <a href="https://etf-sentiment-spencer.streamlit.app/" target="_blank">Live App &rarr;</a>
-                        <a href="https://github.com/spencer-merolla/etf-sentiment-engine" target="_blank">Source Code &rarr;</a>
+                    <div class="stat-row">
+                        <span class="stat-label">Degree</span>
+                        <span class="stat-value">B.A. Economics</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Honors</span>
+                        <span class="stat-value">Cum Laude</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">GPA</span>
+                        <span class="stat-value">3.66</span>
                     </div>
                 </div>
 
-                <div class="item">
-                    <h3 class="item-title">Climate Transition Risk & Valuation Model</h3>
-                    <p class="item-desc">Engineered an interactive multivariable OLS regression engine merging US EPA Scope 1 facility emissions with point-in-time financial fundamentals. Built to quantify how equity markets price carbon transition risk and stress-test corporate valuations against hypothetical federal carbon tax scenarios.</p>
-                    <div class="project-links">
-                        <a href="https://climate-risk-modeler.streamlit.app/" target="_blank">Live App &rarr;</a>
-                        <a href="https://github.com/spencer-merolla/climate-valuation-modeler" target="_blank">Source Code &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <h3 class="item-title">Economics 1986-1990 Retrospective</h3>
-                    <p class="item-desc">Authored a comprehensive analytical essay examining the macroeconomic policy shifts, market realities, and regulatory frameworks defining the late 1980s US economy.</p>
-                    <div class="project-links">
-                        <a href="Economics_Essay_1986-1990.pdf" target="_blank">Read Essay &rarr;</a>
+                <div class="sidebar-section">
+                    <h3>Network &amp; Contact</h3>
+                    <div class="sidebar-links">
+                        <a href="https://www.linkedin.com/in/spencer-merolla-301988296" target="_blank">LinkedIn Profile &rarr;</a>
+                        <a href="https://github.com/spencer-merolla" target="_blank">GitHub Portfolio &rarr;</a>
+                        <a href="mailto:spencer100shm@gmail.com">Email Contact &rarr;</a>
                     </div>
                 </div>
             </div>
