@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spencer Merolla | Digital Resume & Portfolio</title>
+    <title>Spencer Merolla | Digital Resume &amp; Quantitative Portfolio</title>
     <style>
         :root {
-            --bg-color: #f3f4f6;
+            --bg-color: #f3f5f9;
             --surface-color: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --accent-blue: #2563eb;
-            --accent-green: #16a34a;
-            --border-color: #e5e7eb;
-            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --accent-blue: #1d4ed8;
+            --accent-hover: #1e3a8a;
+            --accent-green: #059669;
+            --border-color: #e2e8f0;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
         body {
@@ -23,18 +24,20 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         .ticker-tape {
-            background-color: #111827;
-            color: #ffffff;
-            padding: 0.5rem 0;
-            font-size: 0.85rem;
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 0.6rem 0;
+            font-size: 0.8rem;
             font-weight: 600;
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 4rem;
             border-bottom: 3px solid var(--accent-blue);
+            letter-spacing: 0.5px;
         }
 
         .ticker-item span {
@@ -44,145 +47,203 @@
 
         header {
             background-color: var(--surface-color);
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
         }
 
         .header-titles h1 {
             margin: 0;
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             letter-spacing: -0.5px;
+            color: #0f172a;
         }
 
         .header-titles p {
-            margin: 0.2rem 0 0 0;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 500;
+            margin: 0.5rem 0 0 0;
+            color: var(--accent-blue);
+            font-size: 1rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .resume-download {
             background-color: var(--accent-blue);
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2);
         }
 
         .resume-download:hover {
-            background-color: #1d4ed8;
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(29, 78, 216, 0.3);
         }
 
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 2.5fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 2.8fr 1.2fr;
+            gap: 2.5rem;
         }
 
         .panel {
             background-color: var(--surface-color);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2.5rem;
         }
 
         h2.panel-title {
-            font-size: 1.2rem;
-            color: var(--text-main);
-            border-bottom: 2px solid var(--accent-blue);
-            padding-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
             margin-top: 0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
 
         .feed-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
         }
 
         .feed-item:last-child {
-            border-bottom: none;
             margin-bottom: 0;
-            padding-bottom: 0;
         }
 
         .feed-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            margin-bottom: 0.25rem;
         }
 
         .feed-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin: 0 0 0.2rem 0;
+            color: #0f172a;
+            margin: 0;
         }
 
-        .feed-meta {
+        .feed-date {
             font-size: 0.9rem;
             color: var(--text-muted);
             font-weight: 500;
         }
 
+        .feed-role {
+            font-size: 1rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
         .feed-desc {
-            margin-top: 0.8rem;
-            color: var(--text-main);
-            font-size: 0.95rem;
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0 0 1rem 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tag {
+            background-color: #eff6ff;
+            color: var(--accent-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .action-links {
+            display: flex;
+            gap: 1.5rem;
         }
 
         .action-links a {
             color: var(--accent-blue);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-right: 1.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         .action-links a:hover {
+            color: var(--accent-hover);
             text-decoration: underline;
         }
 
         .profile-img {
             width: 100%;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar-section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
         }
 
         .sidebar-section h3 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.6;
+            margin: 0;
         }
 
         .stat-row {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
 
         .stat-label {
@@ -191,18 +252,27 @@
 
         .stat-value {
             font-weight: 600;
+            color: #0f172a;
         }
 
         .sidebar-links a {
             display: block;
-            color: var(--accent-blue);
+            color: var(--text-main);
             text-decoration: none;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+            text-align: center;
         }
 
         .sidebar-links a:hover {
-            text-decoration: underline;
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            background-color: #eff6ff;
         }
 
         @media (max-width: 900px) {
@@ -217,7 +287,11 @@
             header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1rem;
+                gap: 1.5rem;
+            }
+
+            .sidebar-column {
+                order: -1;
             }
         }
     </style>
@@ -232,105 +306,31 @@
     <header>
         <div class="header-titles">
             <h1>Spencer Merolla</h1>
-            <p>Digital Resume &amp; Quantitative Portfolio</p>
+            <p>Quantitative Analyst &amp; Economics Researcher</p>
         </div>
-        <a href="resume.pdf" target="_blank" class="resume-download">&#128196; View Resume</a>
+        <a href="resume.pdf" target="_blank" class="resume-download">View Resume &rarr;</a>
     </header>
 
     <div class="container">
         <div class="main-column">
-            <!-- Skill Correlation Matrix -->
-            <div class="panel" style="padding: 2rem; margin-bottom: 2rem;">
-                <div class="feed-header" style="margin-bottom: 1rem;">
-                    <h2 class="panel-title" style="margin-bottom: 0; border: none;">Skill Utilization Matrix</h2>
-                    <span class="feed-meta" style="color: var(--accent-blue); font-weight: 600;">Technical Loading per Project</span>
-                </div>
-
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-                    A heat-mapped breakdown of technical skill deployment across recent quantitative projects and professional roles. Darker shading indicates primary architectural drivers.
-                </p>
-
-                <!-- Legend -->
-                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-                    <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <div style="width: 12px; height: 12px; background-color: #2563eb; border-radius: 2px;"></div> Primary Driver
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <div style="width: 12px; height: 12px; background-color: #93c5fd; border-radius: 2px;"></div> Supporting Tech
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <div style="width: 12px; height: 12px; background-color: #f3f4f6; border-radius: 2px; border: 1px solid #e5e7eb;"></div> Not Applied
-                    </div>
-                </div>
-
-                <!-- Heatmap Table -->
-                <div style="overflow-x: auto;">
-                    <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 0.85rem;">
-                        <thead>
-                            <tr>
-                                <th style="padding: 0.8rem; border: 1px solid #e5e7eb; background: #f8fafc; text-align: left; width: 30%;">Initiative / Role</th>
-                                <th style="padding: 0.8rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #4b5563;">Python & Pandas</th>
-                                <th style="padding: 0.8rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #4b5563;">SQL & Data Arch.</th>
-                                <th style="padding: 0.8rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #4b5563;">NLP & AI Models</th>
-                                <th style="padding: 0.8rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #4b5563;">Econometrics (OLS)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Climate Model -->
-                            <tr>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; text-align: left; font-weight: 600; color: #111827; background: #f8fafc;">Climate Valuation Model</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #2563eb; color: white;">High</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #2563eb; color: white;">High</td>
-                            </tr>
-                            <!-- Ithaca -->
-                            <tr>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; text-align: left; font-weight: 600; color: #111827; background: #f8fafc;">Ithaca Clean Energy (NLP)</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #93c5fd; color: #1e3a8a;">Med</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #93c5fd; color: #1e3a8a;">Med</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #2563eb; color: white;">High</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                            </tr>
-                            <!-- ETF Sentiment -->
-                            <tr>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; text-align: left; font-weight: 600; color: #111827; background: #f8fafc;">ETF Sentiment Engine</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #2563eb; color: white;">High</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #93c5fd; color: #1e3a8a;">Med</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #93c5fd; color: #1e3a8a;">Med</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                            </tr>
-                            <!-- Natixis -->
-                            <tr>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; text-align: left; font-weight: 600; color: #111827; background: #f8fafc;">Natixis Macro Research</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #93c5fd; color: #1e3a8a;">Med</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #f3f4f6; color: #9ca3af;">-</td>
-                                <td style="padding: 0.8rem; border: 1px solid #e5e7eb; background-color: #2563eb; color: white;">High</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
             <div class="panel">
                 <h2 class="panel-title">Professional Experience</h2>
 
                 <div class="feed-item">
                     <div class="feed-header">
                         <h3 class="feed-title">Ithaca Clean Energy</h3>
-                        <span class="feed-meta">Jun 2025 - Present</span>
+                        <span class="feed-date">Jun 2025 - Present</span>
                     </div>
-                    <div class="feed-meta">AI &amp; Marketing Intern</div>
+                    <div class="feed-role">AI &amp; Marketing Intern</div>
                     <p class="feed-desc">Refined and trained two distinct NLP models to optimize data extraction workflows. Streamlined business development pipelines, bridging the gap between raw AI outputs and actionable clean energy market strategies.</p>
                 </div>
 
                 <div class="feed-item">
                     <div class="feed-header">
                         <h3 class="feed-title">Natixis Investment Managers</h3>
-                        <span class="feed-meta">Jun 2024 - Sep 2024</span>
+                        <span class="feed-date">Jun 2024 - Sep 2024</span>
                     </div>
-                    <div class="feed-meta">Research Assistant | Boston, MA</div>
+                    <div class="feed-role">Research Assistant | Boston, MA</div>
                     <p class="feed-desc">Conducted empirical research on daily and weekly ETF price behavior to support quantitative trading strategies. Analyzed leading indicators, liquidity swings during macroeconomic news events, and mean reversion tendencies.</p>
                 </div>
             </div>
@@ -339,29 +339,39 @@
                 <h2 class="panel-title">Quantitative Projects &amp; Research</h2>
 
                 <div class="feed-item">
-                    <div class="feed-header">
-                        <h3 class="feed-title">ETF Sentiment &amp; Liquidity Analysis</h3>
+                    <h3 class="feed-title" style="margin-bottom: 0.5rem;">ETF Sentiment &amp; Liquidity Analysis</h3>
+                    <div class="tags">
+                        <span class="tag">Quantitative Research</span>
+                        <span class="tag">Financial Modeling</span>
+                        <span class="tag">Market Liquidity</span>
                     </div>
                     <p class="feed-desc">Engineered an analytical framework to track ETF sentiment, measuring liquidity swings and modeling reality against market expectations to identify mean reversion opportunities.</p>
                     <div class="action-links">
-                        <a href="https://etf-sentiment-spencer.streamlit.app/" target="_blank">Launch Live Dashboard &rarr;</a>
+                        <a href="https://etf-sentiment-spencer.streamlit.app/" target="_blank">Launch Live App &rarr;</a>
+                        <a href="https://github.com/spencer-merolla/etf-sentiment-engine" target="_blank">View Repository &rarr;</a>
                     </div>
                 </div>
 
                 <div class="feed-item">
-                    <div class="feed-header">
-                        <h3 class="feed-title">Climate Transition Risk &amp; Valuation Model</h3>
+                    <h3 class="feed-title" style="margin-bottom: 0.5rem;">Climate Transition Risk &amp; Valuation Model</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">OLS Regression</span>
+                        <span class="tag">Pandas</span>
                     </div>
-                    <p class="feed-desc">Engineered an interactive multivariable OLS regression engine merging US EPA Scope 1 facility emissions with point-in-time financial fundamentals. Built to stress-test corporate valuations against hypothetical federal carbon tax scenarios.</p>
+                    <p class="feed-desc">Engineered an interactive multivariable OLS regression engine merging US EPA Scope 1 facility emissions with point-in-time financial fundamentals. Built to quantify how equity markets price carbon transition risk and stress-test corporate valuations against hypothetical federal carbon tax scenarios.</p>
                     <div class="action-links">
                         <a href="https://climate-risk-modeler.streamlit.app/" target="_blank">Launch Live App &rarr;</a>
-                        <a href="https://github.com/spencer-merolla/climate-valuation-modeler" target="_blank">View GitHub Repository &rarr;</a>
+                        <a href="https://github.com/spencer-merolla/climate-valuation-modeler" target="_blank">View Repository &rarr;</a>
                     </div>
                 </div>
 
                 <div class="feed-item">
-                    <div class="feed-header">
-                        <h3 class="feed-title">Economics 1986-1990 Retrospective</h3>
+                    <h3 class="feed-title" style="margin-bottom: 0.5rem;">Economics 1986-1990 Retrospective</h3>
+                    <div class="tags">
+                        <span class="tag">Macroeconomics</span>
+                        <span class="tag">Federal Reserve Policy</span>
                     </div>
                     <p class="feed-desc">Authored a comprehensive analytical essay examining the macroeconomic policy shifts, market realities, and regulatory frameworks defining the late 1980s US economy.</p>
                     <div class="action-links">
@@ -377,7 +387,7 @@
 
                 <div class="sidebar-section">
                     <h3>Executive Summary</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0;">Quantitative analyst and economics researcher specializing in financial modeling, Natural Language Processing, and climate transition risk. Leveraging SQL, Python, and statistical analysis to bridge environmental data and equity valuations.</p>
+                    <p class="summary-text">Quantitative analyst and economics researcher specializing in financial modeling, Natural Language Processing, and climate transition risk. Leveraging SQL, Python, and statistical analysis to bridge environmental data and equity valuations.</p>
                 </div>
 
                 <div class="sidebar-section">
@@ -401,11 +411,11 @@
                 </div>
 
                 <div class="sidebar-section">
-                    <h3>Network &amp; Contact</h3>
+                    <h3>Network</h3>
                     <div class="sidebar-links">
-                        <a href="https://www.linkedin.com/in/spencer-merolla-301988296" target="_blank">LinkedIn Profile &rarr;</a>
-                        <a href="https://github.com/spencer-merolla" target="_blank">GitHub Portfolio &rarr;</a>
-                        <a href="mailto:spencer100shm@gmail.com">Email Contact &rarr;</a>
+                        <a href="https://www.linkedin.com/in/spencer-merolla-301988296" target="_blank">LinkedIn Profile</a>
+                        <a href="https://github.com/spencer-merolla" target="_blank">GitHub Portfolio</a>
+                        <a href="mailto:spencer200shm@gmail.com">Email Contact</a>
                     </div>
                 </div>
             </div>
